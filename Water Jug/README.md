@@ -1,21 +1,47 @@
-# Uninformed Search: BFS vs DFS on Water Jug Problem
+# BFS vs DFS on Water Jug Problem (Uninformed Search)
 
-This repo implements:
+This project implements two uninformed search strategies:
 - BFS (Breadth First Search)
 - DFS (Depth First Search)
 
-Example: Water Jug Problem (Milk/Water jug).
+Problem chosen: Water Jug problem.
 
-## Run
-python main.py
+## Problem statement (example used here)
+You have two jugs:
+- Jug A capacity = 4 liters
+- Jug B capacity = 3 liters
+Start state = (0, 0)
+Goal = get exactly 2 liters in either jug.
 
-## Output
-- Solution path (states + actions)
+State representation:
+(a, b) where
+a = water in Jug A
+b = water in Jug B
+
+Allowed actions:
+- Fill A
+- Fill B
+- Empty A
+- Empty B
+- Pour A -> B
+- Pour B -> A
+
+## How to run
+Make sure all 3 files are in the same folder:
+- bfs.py
+- dfs.py
+- water_jug.py
+
+Run:
+python water_jug.py
+
+## What you will see
+For BFS and DFS:
+- Whether solution found
 - Steps in solution
 - Nodes expanded
-- Max frontier size (memory-ish)
-- Time taken (ms)
+- Path of states + actions
 
-Why this is useful:
-- BFS guarantees shortest solution (fewest moves) in unweighted graphs.
-- DFS may find a solution faster sometimes but does NOT guarantee shortest, and can go deep unnecessarily.
+## Key comparison
+- BFS guarantees the shortest solution (minimum number of moves).
+- DFS does not guarantee shortest; it may go deep in one direction and find a longer path.
