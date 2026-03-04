@@ -1,14 +1,11 @@
 from bfs import bfs
 from dfs import dfs
 
-# -----------------------------
-# Water Jug Problem Definition
-# -----------------------------
 
 CAP_A = 4
 CAP_B = 3
 START = (0, 0)
-GOAL = 2  # goal amount in either jug
+GOAL = 2  
 
 def is_goal(state):
     a, b = state
@@ -45,10 +42,6 @@ def neighbors(state):
         nxt.append(((a + pour, b - pour), f"Pour B->A ({pour})"))
 
     return nxt
-
-# -----------------------------
-# Printing results nicely
-# -----------------------------
 
 def show_result(result, name):
     print(f"\n===== {name} =====")
