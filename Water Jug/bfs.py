@@ -13,7 +13,7 @@ def _reconstruct(parent, action, end_state):
     path.reverse()
     actions.reverse()
 
-    # remove the first None action (start has no action)
+
     if actions and actions[0] is None:
         actions = actions[1:]
 
@@ -41,7 +41,7 @@ def bfs(start, is_goal, neighbors):
             }
 
         for ns, act in neighbors(s):
-            if ns not in parent:  # visited check
+            if ns not in parent: 
                 parent[ns] = s
                 action[ns] = act
                 q.append(ns)
