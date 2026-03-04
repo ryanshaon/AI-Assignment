@@ -1,0 +1,95 @@
+A) Turing Test (chat-based)
+
+Goal: a human judge chats with two “participants” (one human, one AI) without knowing which is which. After the chat, the judge guesses who is AI.
+
+Architecture
+
+Client/UI (browser)
+
+Judge chat screen
+
+Participant chat screen
+
+Server (API + session manager)
+
+Creates “rooms” (sessions)
+
+Assigns roles (judge / participant A / participant B)
+
+Relays messages in real time (simple polling) or WebSockets
+
+AI Agent service
+
+Given conversation context, generates replies
+
+Evaluation module
+
+After session ends: collects judge guess + chat logs
+
+Computes metrics: judge accuracy, time taken, message count, etc.
+
+Storage
+
+In-memory for demo
+
+Real life: DB (Postgres) + Redis for sessions
+
+Logging
+
+Store chat transcript + timestamps
+
+Flow
+
+Judge starts a session
+
+Server creates two participants: A and B
+
+One is a real human, the other is the AI agent (hidden)
+
+Judge chats → server routes messages
+
+End → judge chooses who is AI
+
+Evaluation stores transcript + result
+
+B) CAPTCHA (image/text challenge)
+
+Goal: stop bots from submitting forms.
+
+Architecture
+
+CAPTCHA Generator
+
+Creates challenge (random text / math / image distortion)
+
+Produces captcha_id + answer hash
+
+CAPTCHA Store
+
+Store {captcha_id: answer_hash, expiry_time, attempts}
+
+Real life: Redis with TTL
+
+Verification API
+
+Receives captcha_id + user_answer
+
+Checks hash match + expiration + attempts
+
+Rate limiter
+
+Limits requests per IP/user
+
+Integration point
+
+Any protected endpoint checks CAPTCHA token before processing
+
+Flow
+
+Client requests /captcha/new
+
+Server returns captcha image/text + captcha_id
+
+Client submits form with captcha_id + answer
+
+Server verifies → allow/bloc
