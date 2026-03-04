@@ -20,4 +20,28 @@ This repository contains solutions for the AI programming assignments:
      - nodes expanded
      - runtime (optional)
    - BFS guarantees shortest path (minimum moves), DFS may find a longer path depending on traversal order.
+  
+## Run
+
+### AQI Agent
+
+```bash
+cd "AQI Agent"
+python agent.py
+```
+
+### Turing Test
+
+```bash
+cd "Turing Test"
+python server.py
+```
+
+### Water Jug (BFS/DFS)
+
+```bash
+cd "Water Jug"
+python water_jug.py
+```
+
 
