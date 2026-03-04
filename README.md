@@ -1,4 +1,4 @@
-# AI Programming Assignments (Deadline: 5 March 2026)
+# AI Programming Assignments
 
 **Name:** Shaon Ryan Ranjit  
 **Roll No.:** SE24UCSE057  
